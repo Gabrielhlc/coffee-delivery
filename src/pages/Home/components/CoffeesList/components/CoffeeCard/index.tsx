@@ -1,48 +1,77 @@
-import { CoffeeCardContainer } from "./styles";
-import { ShoppingCartSimple } from "phosphor-react";
+import { useContext, useState } from "react";
 
-export interface CoffeeCardProps {
-    title: string;
-    subtitle: string;
-    tags: string[],
-    imageUrl: string,
+import { ShoppingCartSimple } from "phosphor-react";
+import { AddButton, CardHeader, CoffeeCardContainer, CounterButton, FormContainer, Tags } from "./styles";
+import { CartContext, CartItem, Coffee } from "../../../../../../contexts/CartContext";
+
+interface CoffeeCardProps {
+    coffee: Coffee
 }
 
-export function CoffeeCard(props: CoffeeCardProps) {
+export function CoffeeCard({ coffee }: CoffeeCardProps) {
+    const [coffeeQuantity, setCoffeeQuantity] = useState(1);
+
+    const { setCartItems } = useContext(CartContext)
+
+    function handleChangeCoffeeQuantity(symbol: number) {
+        if (symbol === 1) {
+            setCoffeeQuantity((state) => {
+                return state + 1
+            });
+        } else {
+            setCoffeeQuantity((state) => {
+                if (state === 1) return 1
+                return state - 1
+            });
+        }
+    }
+
+    function handleNewItemToCart() {
+        const item: CartItem = {
+            coffee,
+            amount: coffeeQuantity
+        }
+        setCartItems(item)
+    }
+
     return (
         <CoffeeCardContainer>
+            <img src={coffee.imageUrl} alt={coffee.title} />
 
-            <img src={props.imageUrl} alt={props.title} />
-
-            <div id="tags">
-                {props.tags.map(tag => {
+            <Tags>
+                {coffee.tags.map(tag => {
                     return (
-                        <span key={Math.random() * 10000}>{tag}</span>
+                        <span key={Math.random() * 100000}>{tag}</span>
                     )
                 })}
-            </div>
+            </Tags>
 
-            <h1>{props.title}</h1>
-            <p>{props.subtitle}</p>
+            <CardHeader>
+                <h1>{coffee.title}</h1>
+                <p>{coffee.subtitle}</p>
+            </CardHeader>
 
             <div id="buy">
                 <span>R$ <span>9,90</span></span>
 
-                <form action="">
+                <FormContainer>
                     <div id="counterInput">
-                        <button>
+                        <CounterButton onClick={() => handleChangeCoffeeQuantity(0)} type="button">
                             -
-                        </button>
-                        <span>1</span>
-                        <button>
+                        </CounterButton>
+                        <span>{coffeeQuantity}</span>
+                        <CounterButton onClick={() => handleChangeCoffeeQuantity(1)} type="button">
                             +
-                        </button>
+                        </CounterButton>
                     </div>
                     {/* deve se manter na home depois desse botão */}
-                    <button id="buttonSubmit" type="submit">
+                    <AddButton
+                        type="button"
+                        onClick={handleNewItemToCart}
+                    >
                         <ShoppingCartSimple weight="fill" size={22} />
-                    </button>
-                </form>
+                    </AddButton>
+                </FormContainer>
             </div>
         </CoffeeCardContainer>
     )
