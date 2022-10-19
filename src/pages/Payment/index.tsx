@@ -1,12 +1,12 @@
 import { Bank, CreditCard, CurrencyDollar, MapPinLine, Money } from "phosphor-react";
-import { UserData, PaymentContainer, FormHeader, PaymentButtons } from "./styles";
+import { UserData, PaymentContainer, FormHeader, PaymentButtons, CartDescription } from "./styles";
 
 export function Payment() {
     return (
         <PaymentContainer>
-            <h1>Complete seu pedido</h1>
 
             <UserData>
+                <h1>Complete seu pedido</h1>
                 <section>
                     <FormHeader>
                         <MapPinLine weight="regular" size={22} color="#C47F17" />
@@ -58,6 +58,13 @@ export function Payment() {
                     </PaymentButtons>
                 </section>
             </UserData>
+
+            <CartDescription>
+                <h1>Cafés selecionados</h1>
+                <section>
+
+                </section>
+            </CartDescription>
 
         </PaymentContainer>
     )

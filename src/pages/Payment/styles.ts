@@ -2,15 +2,13 @@ import styled from "styled-components";
 
 export const PaymentContainer = styled.div`
     margin-top: 2rem;
-    padding: 0 10rem;
+    padding: 0 10rem 5rem;
     display: flex;
-    flex-direction: column;
-    gap: 1rem;
+    gap: 2rem;
 
     h1 {
         font-size: 1.125rem;
     }
-
 `;
 
 export const UserData = styled.div`
@@ -21,6 +19,7 @@ export const UserData = styled.div`
     align-items: flex-start;
     gap: 0.75rem;
 
+     
     section {
         background-color: ${(props) => props.theme["base-card"]};    
         padding: 40px;
@@ -128,4 +127,25 @@ export const PaymentButtons = styled.div`
         }
     }
 
+`;
+
+export const CartDescription = styled.div`
+    
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+    
+
+    section {
+        display: flex;
+        flex-direction: column;
+        padding: 40px;
+        gap: 24px;
+        width: 28rem;
+        height: 29rem;
+        background-color: ${(props) => props.theme["base-card"]};
+        border-radius: 6px 44px;
+    }
+    
 `;
