@@ -1,5 +1,5 @@
 import { createContext, ReactNode, useState } from "react";
-import { CoffeeSeeds } from "../pages/Home/components/CoffeesList/components/CoffeeCard/coffeeSeeds";
+import { CoffeeSeeds } from "../coffeeSeeds";
 
 export interface Coffee {
     title: string;
@@ -12,6 +12,7 @@ interface CartContextType {
     coffees: Coffee[];
     setCartItems: (item: CartItem) => void;
     items: CartItem[];
+
 }
 
 export interface CartItem {
@@ -51,7 +52,7 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
         }
     }
 
-    console.log(items)
+
     return (
         <CartContext.Provider
             value={{
@@ -64,5 +65,3 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
         </CartContext.Provider>
     )
 }
-
-

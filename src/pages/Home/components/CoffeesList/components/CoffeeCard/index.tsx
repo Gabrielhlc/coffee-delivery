@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 
-import { ShoppingCartSimple } from "phosphor-react";
+import { Minus, Plus, ShoppingCartSimple } from "phosphor-react";
 import { AddButton, CardHeader, CoffeeCardContainer, CounterButton, FormContainer, Tags } from "./styles";
 import { CartContext, CartItem, Coffee } from "../../../../../../contexts/CartContext";
 
@@ -9,9 +9,10 @@ interface CoffeeCardProps {
 }
 
 export function CoffeeCard({ coffee }: CoffeeCardProps) {
-    const [coffeeQuantity, setCoffeeQuantity] = useState(1);
 
     const { setCartItems } = useContext(CartContext)
+
+    const [coffeeQuantity, setCoffeeQuantity] = useState(1);
 
     function handleChangeCoffeeQuantity(symbol: number) {
         if (symbol === 1) {
@@ -57,11 +58,11 @@ export function CoffeeCard({ coffee }: CoffeeCardProps) {
                 <FormContainer>
                     <div id="counterInput">
                         <CounterButton onClick={() => handleChangeCoffeeQuantity(0)} type="button">
-                            -
+                            <Minus size={14} />
                         </CounterButton>
                         <span>{coffeeQuantity}</span>
                         <CounterButton onClick={() => handleChangeCoffeeQuantity(1)} type="button">
-                            +
+                            <Plus size={14} />
                         </CounterButton>
                     </div>
                     {/* deve se manter na home depois desse botão */}

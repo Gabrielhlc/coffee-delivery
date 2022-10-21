@@ -43,12 +43,12 @@ export const CoffeeCardContainer = styled.div`
 
         #counterInput {
             width: 4.5rem;
-            height: 38px;
+            height: 2.375rem;
             
 
             display: flex;
-            align-items: flex-end;
-            padding: 0.5rem;
+            align-items: center;
+            padding: 0.5rem 0;
             gap: 0.25rem;
 
             background-color: ${(props) => props.theme["base-button"]};
@@ -90,11 +90,11 @@ export const Tags = styled.span`
 
 export const CounterButton = styled.button`
         width: 100%;
+        
         display: flex;
         justify-content: center;
         
-        font-size: 19px;
-        color: purple;
+        color: ${(props) => props.theme.purple};
         background: none;
         border: none;
         
