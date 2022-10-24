@@ -13,6 +13,7 @@ export function Cart() {
             item.amount++;
             setCartItems(item)
         } else {
+            if (item.amount == 1) return
             item.amount--;
             setCartItems(item)
         }

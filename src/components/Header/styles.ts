@@ -33,11 +33,32 @@ export const HeaderContainer = styled.header`
             }
 
              a {
+                position: relative;
                 background-color: ${(props) => props.theme['yellow-light']};
                 color: ${(props) => props.theme['yellow-dark']};
              }
         }
     }
-    
-`
+`;
+
+export const Counter = styled.strong`
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    right: -8.35px;
+    top: -8px;
+
+    font-family: "Roboto";
+    font-weight: 700;
+    font-size: 0.75rem;
+    color: white;
+    background-color: ${(props) => props.theme['yellow-dark']};
+    border-radius: 1000px;
+`;
 

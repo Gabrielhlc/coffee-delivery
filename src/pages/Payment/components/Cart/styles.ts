@@ -13,7 +13,8 @@ export const CartContainer = styled.div`
 
     section {
         width: 28rem;
-        height: 31.125rem;
+        max-height: 40rem;
+        height: max-content;
 
         display: flex;
         flex-direction: column;
@@ -27,17 +28,20 @@ export const CartContainer = styled.div`
 
 `;
 
+
 export const CoffeesOnCart = styled.div`
     display: flex;
     flex-direction: column;
 
     gap: 1rem;
 
+    overflow: auto;
+
     #coffee {
         display: flex;
         justify-content: space-between;
         padding: 0.5rem 0.25rem 2rem;
-        gap: 2.5rem;
+        gap: 1.5rem;
 
         border-bottom: 1px solid ${(props) => props.theme["base-button"]};
 
