@@ -19,7 +19,7 @@ export const UserData = styled.div`
     }
     
 
-    form {
+    #form {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
@@ -96,26 +96,32 @@ export const PaymentButtons = styled.div`
     justify-content: center;
     align-items: center;
     gap: 0.75rem;
+`;
 
-    button {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        padding: 16px;
-        gap: 12px;
-        
-        flex: 1;
+interface RadioBoxProps {
+    isActive: boolean;
+}
 
-        font-size: 0.75rem;
-        line-height: 19.2px;
+export const RadioButtons = styled.button<RadioBoxProps>`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 1rem;
+    gap: 0.75rem;
+    
+    flex: 1;
 
-        background-color: ${(props) => props.theme["base-button"]};
-        border: none;
-        border-radius: 6px;
-        cursor: pointer;
+    font-size: 0.75rem;
+    line-height: 19.2px;
 
-        &:hover {
-            background-color: ${(props) => props.theme["base-hover"]};
-        }
+    background-color: ${(props) => props.theme["base-button"]};
+    border-radius: 6px;
+    cursor: pointer;
+
+    border: ${(props) => props.isActive ? '1px solid purple' : 'none'};
+
+    &:hover {
+        background-color: ${(props) => props.theme["base-hover"]};
     }
+
 `;

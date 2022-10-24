@@ -68,7 +68,7 @@ export function Cart() {
                     </div>
                 </Prices>
 
-                <PayButton>
+                <PayButton type="submit" form="userDataForm">
                     CONFIRMAR PEDIDO
                 </PayButton>
             </section>

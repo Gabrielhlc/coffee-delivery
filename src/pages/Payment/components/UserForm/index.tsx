@@ -1,7 +1,21 @@
 import { Bank, CreditCard, CurrencyDollar, MapPinLine, Money } from "phosphor-react";
-import { FormHeader, PaymentButtons, UserData } from "./styles";
+import { useFormContext } from "react-hook-form";
+import { FormHeader, PaymentButtons, RadioButtons, UserData } from "./styles";
 
-export function UserForm() {
+interface UserFormProps {
+    pagamento: string,
+    setTipoPagamento: (pagamento: string) => void
+}
+
+export function UserForm({ pagamento, setTipoPagamento }: UserFormProps) {
+
+
+    const { register } = useFormContext();
+
+    function handleChangeTipoPagamento(pagamento: string) {
+        setTipoPagamento(pagamento)
+    }
+
     return (
 
         <UserData>
@@ -15,21 +29,49 @@ export function UserForm() {
                     </span>
                 </FormHeader>
 
-                <form action="">
-                    <input id="cep" type="text" placeholder="CEP" />
-                    <input id="rua" type="text" placeholder="Rua" />
+                <div id="form">
+                    <input
+                        id="cep" type="text"
+                        placeholder="CEP"
+                        {...register('cep')}
+                    />
+                    <input
+                        id="rua" type="text"
+                        placeholder="Rua"
+                        {...register('rua')}
+                    />
 
                     <div id="numero-complemento">
-                        <input type="text" placeholder="Número" />
-                        <input type="text" placeholder="Complemento (Opcional)" />
+                        <input
+                            type="text"
+                            placeholder="Número"
+                            {...register('numero', { valueAsNumber: true })}
+                        />
+                        <input
+                            type="text"
+                            placeholder="Complemento (Opcional)"
+                            {...register('complemento')}
+                        />
                     </div>
 
                     <div id="bairro-cidade-uf">
-                        <input type="text" placeholder="Bairro" />
-                        <input type="text" placeholder="Cidade" />
-                        <input type="text" placeholder="UF" />
+                        <input
+                            type="text"
+                            placeholder="Bairro"
+                            {...register('bairro')}
+                        />
+                        <input
+                            type="text"
+                            placeholder="Cidade"
+                            {...register('cidade')}
+                        />
+                        <input
+                            type="text"
+                            placeholder="UF"
+                            {...register('uf')}
+                        />
                     </div>
-                </form>
+                </div>
             </section>
 
 
@@ -42,18 +84,30 @@ export function UserForm() {
                     </span>
                 </FormHeader>
                 <PaymentButtons>
-                    <button type="button">
+                    <RadioButtons
+                        isActive={pagamento === "credito"}
+                        type="button"
+                        onClick={() => handleChangeTipoPagamento("credito")}
+                    >
                         <CreditCard weight="regular" color="#8047F8" />
                         CARTÃO DE CRÉDITO
-                    </button>
-                    <button type="button">
+                    </RadioButtons>
+                    <RadioButtons
+                        isActive={pagamento === "debito"}
+                        type="button"
+                        onClick={() => handleChangeTipoPagamento("debito")}
+                    >
                         <Bank weight="regular" color="#8047F8" />
                         CARTÃO DE DÉBITO
-                    </button>
-                    <button type="button">
+                    </RadioButtons>
+                    <RadioButtons
+                        isActive={pagamento === "dinheiro"}
+                        type="button"
+                        onClick={() => handleChangeTipoPagamento("dinheiro")}
+                    >
                         <Money weight="regular" color="#8047F8" />
                         DINHEIRO
-                    </button>
+                    </RadioButtons>
                 </PaymentButtons>
             </section>
         </UserData>

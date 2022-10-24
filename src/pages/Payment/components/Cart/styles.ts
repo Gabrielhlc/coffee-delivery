@@ -185,4 +185,11 @@ export const PayButton = styled.button`
     background-color: ${(props) => props.theme.yellow};
     border-radius: 6px;
     border: none;
+
+    cursor: pointer;
+
+    &:hover {
+        background-color: ${(props) => props.theme["yellow-dark"]} ;
+        transition: background-color 200ms ease-in;
+    }
 `;
