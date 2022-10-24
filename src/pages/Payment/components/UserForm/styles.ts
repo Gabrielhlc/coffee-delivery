@@ -14,7 +14,7 @@ export const UserData = styled.div`
      
     section {
         background-color: ${(props) => props.theme["base-card"]};    
-        padding: 40px;
+        padding: 2.5rem;
         border-radius: 6px;
     }
     
@@ -56,7 +56,7 @@ export const UserData = styled.div`
             width: 100%;
             display: grid;
             grid-gap: 0.75rem;
-            grid-template-columns: 12.5rem auto 60px;
+            grid-template-columns: 12.5rem auto 3.75rem;
         }
     }
 `;
@@ -118,10 +118,10 @@ export const RadioButtons = styled.button<RadioBoxProps>`
     border-radius: 6px;
     cursor: pointer;
 
-    border: ${(props) => props.isActive ? '1px solid purple' : 'none'};
+    background-color: ${(props) => props.isActive ? '#EBE5F9' : 'none'};
+    border: ${(props) => props.isActive ? '1px solid #4B2995' : 'none'};
 
     &:hover {
         background-color: ${(props) => props.theme["base-hover"]};
     }
-
 `;

@@ -1,8 +1,8 @@
 import { useContext, useState } from "react";
+import { CartContext, CartItem, Coffee } from "../../../../../../contexts/CartContext";
 
 import { Minus, Plus, ShoppingCartSimple } from "phosphor-react";
 import { AddButton, CardHeader, CoffeeCardContainer, CounterButton, FormContainer, Tags } from "./styles";
-import { CartContext, CartItem, Coffee } from "../../../../../../contexts/CartContext";
 
 interface CoffeeCardProps {
     coffee: Coffee

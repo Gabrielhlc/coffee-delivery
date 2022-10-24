@@ -1,6 +1,6 @@
 import { Coffee, Package, ShoppingCart, Timer } from "phosphor-react";
-import { HeroSectionContainer, Icon } from "./styles";
 import introImage from "../../../../assets/intro-image.svg"
+import { HeroSectionContainer, Icon } from "./styles";
 
 export function HeroSection() {
     return (

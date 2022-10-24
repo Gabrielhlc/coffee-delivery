@@ -1,10 +1,11 @@
-import { Counter, HeaderContainer } from "./styles";
-import logoCoffee from '../../assets/logo-coffee-delivery.svg'
-import { MapPin, ShoppingCart } from "phosphor-react";
-import { NavLink } from "react-router-dom";
 import { useContext } from "react";
+import { NavLink } from "react-router-dom";
 import { CartContext } from "../../contexts/CartContext";
 
+import { MapPin, ShoppingCart } from "phosphor-react";
+import logoCoffee from '../../assets/logo-coffee-delivery.svg'
+
+import { Counter, HeaderContainer } from "./styles";
 
 export function Header() {
 

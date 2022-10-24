@@ -1,8 +1,8 @@
-import { Minus, Plus, Trash } from "phosphor-react";
 import { useContext } from "react";
+import { Minus, Plus, Trash } from "phosphor-react";
+
 import { CartContext, CartItem } from "../../../../contexts/CartContext";
 import { CartContainer, CoffeesOnCart, CounterButton, PayButton, Prices, RemoveButton } from "./styles";
-
 
 export function Cart() {
 

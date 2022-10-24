@@ -1,11 +1,12 @@
+import { useState } from "react";
+import { FormProvider, useForm } from "react-hook-form";
+import * as zod from "zod";
+import { zodResolver } from '@hookform/resolvers/zod'
+
 import { Cart } from "./components/Cart";
 import { UserForm } from "./components/UserForm";
-import { PaymentContainer } from "./styles";
-import * as zod from "zod";
-import { FormProvider, useForm } from "react-hook-form";
-import { zodResolver } from '@hookform/resolvers/zod'
-import { useState } from "react";
 
+import { PaymentContainer } from "./styles";
 
 type NewUserFormData = zod.infer<typeof newUserFormValidationSchema>
 

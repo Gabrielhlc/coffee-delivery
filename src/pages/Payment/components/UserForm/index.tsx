@@ -1,5 +1,6 @@
-import { Bank, CreditCard, CurrencyDollar, MapPinLine, Money } from "phosphor-react";
 import { useFormContext } from "react-hook-form";
+
+import { Bank, CreditCard, CurrencyDollar, MapPinLine, Money } from "phosphor-react";
 import { FormHeader, PaymentButtons, RadioButtons, UserData } from "./styles";
 
 interface UserFormProps {
